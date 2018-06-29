@@ -2,34 +2,26 @@
 
 Purpose of this repo is to provide source code of examples related to design patterns.
 
-# ideas
+# examples
 
-1. Factory - create program that will accept one parameter filePath.
-  a. program should print file content to System.out
-  b. if file was not found or argument not provided it should ask user to provide 
-  filePath at runtime using System.in and then print file content to System.out
+1. Factory - create program that will print 10 generated numbers
+  a. fibonaci sequence
+  b. increasing sequence
   
-  hint: use factory to return InputSteam from filePath or ask user
-
-2. Strategia - payment calcualtor with with BonusStrategy, arguments
-  a. position: JUNIOR, REGULAR, SENIOR, MANAGER, BOSS
-  b. numer of full worked years in company
-  c. salary per month 
-  d. implement three strategies for bonus calcualtion:
-    - JUNIOR, REGULAR: salary * 12 * 0.05
-	- SENIOR, MANAGER: (salary * 12 * 0.05) * years
-	- BOSS: salary * 6
+2. Strategy - mathematical operation strategy
+  a. adding
+  b. multiplication
+  c. subtraction
 		
-3. Builder - subbway sanwich builder
-    - Sandwitch20Builder
-	- Sandwitch40Builder
-	- flatBreadBuilder
-	
-	- methods: setType, addCheeses, addSauce, isTakeAway
+3. Builder - meal builder
+    - vegetarian
+	- meat
+	- fastFood
 	
 4. Template method - calculate specified operation for n nmubers starting from k
-    - abstract class with algo get  numbers
-	- perform operation (print, print sum)
+    - print numers
+	- print operation type
+	- print result (custom algorith per class)
 	
 5. Decorator - 
     - logs operation invocation result
@@ -38,10 +30,7 @@ Purpose of this repo is to provide source code of examples related to design pat
 	
 6. composit - password validator
     - length
-	- number
-	- largLetter
-	- smallLetter
-	- special characters
+	- updaerCaseLetter
 	
 7. state - 
     - two thread application
