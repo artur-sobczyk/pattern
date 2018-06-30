@@ -23,7 +23,9 @@ public class CachingDecorator implements CalculationOperation {
         if (cache.containsKey(key)) {
             return cache.get(key);
         } else {
-            return operation.execute(a, b);
+            int result = operation.execute(a, b);
+            cache.put(key, result);
+            return result;
         }
     }
 }
