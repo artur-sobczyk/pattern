@@ -1,5 +1,8 @@
 package pl.art.tutorial.pattern.builder.bloch;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -13,8 +16,14 @@ public class User {
     private LocalDate dateOfBirth;
     private String countryCode;
 
-    public static Builder builder(){
+    public static Builder builder() {
         return new Builder();
+    }
+
+    public static Builder maleBuilder() {
+        Builder b = new Builder();
+        b.gender("male");
+        return b;
     }
 
     public User(String firstName, String lastName, String gender, LocalDate dateOfBirth, String countryCode) {
@@ -31,7 +40,7 @@ public class User {
         private String lastName;
         private String gender;
         private LocalDate dateOfBirth;
-        private String countryCode;
+        private String countryCode = "pl";
 
         public Builder firstName(String firstName) {
             this.firstName = firstName;
@@ -58,9 +67,26 @@ public class User {
             return this;
         }
 
-        public User build(){
+        public Builder vcard(Vcard vcard) {
+            this.firstName = vcard.getFirstName();
+            this.lastName = vcard.getLastName();
+            return this;
+        }
+
+        public User build() {
+            if(StringUtils.isEmpty(firstName)){
+                throw new IllegalStateException("first name is required");
+            }
+
             return new User(firstName, lastName, gender, dateOfBirth, countryCode);
         }
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class Vcard {
+        private String firstName;
+        private String lastName;
     }
 
     public String toString() {

@@ -1,5 +1,8 @@
 package pl.art.tutorial.pattern.builder.bloch.classical;
 
+import lombok.ToString;
+
+@ToString
 public class Pizza {
 
 	private String dough = "";

@@ -6,10 +6,13 @@ import java.util.Scanner;
 public class FactoryMain {
 
     public static void main(String... args) {
+
         Scanner sc = new Scanner(System.in);
         System.out.print("algorithm: ");
         String algorithm = sc.nextLine();
+
         NumberGenerator generator = new NumberGeneratorFactory().create(algorithm);
+
         print10Numbers(generator);
     }
 
