@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Slf4j
-public class DirMonitor implements DirChangeObserver.DirChangePublisher {
+public class DirMonitor implements DirChangePublisher {
 
     File monitoredDir;
     Set<String> currentFilesInDir;
@@ -25,10 +25,13 @@ public class DirMonitor implements DirChangeObserver.DirChangePublisher {
 
         if (!newList.equals(currentFilesInDir)) {
             log.info("change in: " + monitoredDir.getAbsolutePath());
+
             Set<String> newFiles = Sets.newHashSet(newList);
             newFiles.removeAll(currentFilesInDir);
+
             Set<String> deletedFiles = Sets.newHashSet(currentFilesInDir);
             deletedFiles.removeAll(newList);
+
             currentFilesInDir = newList;
             observers.forEach(o -> o.dirChanged(newFiles, deletedFiles));
         }

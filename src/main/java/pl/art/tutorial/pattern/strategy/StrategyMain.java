@@ -17,7 +17,10 @@ public class StrategyMain {
 
         if (Arrays.asList(args).contains("mediana")) {
             strategy = new MedianStrategy();
-        } else {
+
+        } else if (Arrays.asList(args).contains("sum")) {
+            strategy = new SumStrategy();
+        } else{
             strategy = new AverageStrategy();
         }
 

@@ -1,10 +1,6 @@
 package pl.art.tutorial.pattern.template;
 
 public class Cricket extends Game {
-	@Override
-	void endPlay() {
-		System.out.println("Cricket Game Finished!");
-	}
 
 	@Override
 	void initialize() {
@@ -14,5 +10,10 @@ public class Cricket extends Game {
 	@Override
 	void startPlay() {
 		System.out.println("Cricket Game Started. Enjoy the game!");
+	}
+
+	@Override
+	void endPlay() {
+		System.out.println("Cricket Game Finished!");
 	}
 }
