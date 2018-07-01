@@ -17,9 +17,15 @@ public class HalloWorldMain {
 
         MessageFactory messageFactory = new MessageFactory();
         MessagePrintStrategyFactory messagePrintStrategyFactory = new MessagePrintStrategyFactory(messageFactory);
-
-        MessagePrintStrategy strategy = messagePrintStrategyFactory.create(argument);
         Printer printer = new PrinterFactory().create(argument);
+
+        algorithm(argument, messagePrintStrategyFactory, printer);
+    }
+
+    private static void algorithm(ProgramArgument argument, MessagePrintStrategyFactory messagePrintStrategyFactory, Printer printer){
+        MessagePrintStrategy strategy = messagePrintStrategyFactory.create(argument);
+        printer.init();
         strategy.print(printer, argument);
+        printer.close();
     }
 }

@@ -1,6 +1,6 @@
 package pl.art.tutorial.pattern.hallo.print;
 
-public class ColorPrintDecorator implements Printer {
+public class ColorPrintDecorator extends Printer {
 
     private Printer printer;
     private String colorTag;

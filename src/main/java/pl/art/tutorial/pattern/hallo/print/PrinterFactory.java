@@ -6,9 +6,7 @@ import pl.art.tutorial.pattern.hallo.ProgramArgument;
 
 import java.util.Map;
 
-import static pl.art.tutorial.pattern.hallo.print.Printer.ANSI_BLUE;
-import static pl.art.tutorial.pattern.hallo.print.Printer.ANSI_RED;
-import static pl.art.tutorial.pattern.hallo.print.Printer.ANSI_YELLOW;
+import static pl.art.tutorial.pattern.hallo.print.Printer.*;
 
 public class PrinterFactory {
 
@@ -18,14 +16,18 @@ public class PrinterFactory {
             .put("yellow", ANSI_YELLOW)
             .build();
 
-    public Printer create(ProgramArgument argument){
+    public Printer create(ProgramArgument argument) {
 
-        if(StringUtils.isNoneEmpty(argument.getColor())
-                && map.keySet().contains(argument.getColor())){
+        if (StringUtils.isNoneEmpty(argument.getColor())
+                && map.keySet().contains(argument.getColor())) {
 
-            return new ColorPrintDecorator(new SystemPrinter(), map.get(argument.getColor()));
+            return addFilePrinter(new ColorPrintDecorator(new SystemPrinter(), map.get(argument.getColor())));
         } else {
-            return new SystemPrinter();
+            return addFilePrinter(new SystemPrinter());
         }
+    }
+
+    private Printer addFilePrinter(Printer printer) {
+        return new CompositePrinter(printer, new FilePrinter());
     }
 }
