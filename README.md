@@ -56,7 +56,10 @@ Purpose of this repo is to provide source code of examples related to design pat
 
 # design simple program that meet following requieremenst
 
-1. create program printing mesage: Hello
+1. create program printing message: Hello World
+2. accepting parameter, create program printing message: Hello World
+
+
 2. user provides name as a paramter ex: -name - Factory
 3. program should ask user for name and print message: Hello Artur. - Strategy
 
