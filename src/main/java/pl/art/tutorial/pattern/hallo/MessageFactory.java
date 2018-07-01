@@ -6,17 +6,29 @@ import java.util.Scanner;
 
 public class MessageFactory {
 
-    public String generate(ProgramArgument argument) {
+    public Message generate(MessageParameters parameters) {
 
-        if (StringUtils.isNoneEmpty(argument.getUserName())) {
-            return "Hallo " + argument.getUserName();
+        if (StringUtils.isNoneEmpty(parameters.getUserName())) {
+            return Message.builder().message("Hallo " + parameters.getMessage()).build();
 
-        } else if (argument.isInteractive()) {
-            String fistName = readLine("fistName: ");
-            return "Hallo " + fistName;
+        } else if (parameters.isInteractive()) {
+            String userName = readLine("userName: ");
+            String gender = readLine("gender: ");
+            String color = readLine("color: ");
+
+            MessageParameters messageParameters = MessageParameters.builder()
+                    .gender(MessageParameters.Gender.valueOf(StringUtils.trimToEmpty(StringUtils.upperCase(gender))))
+                    .userName(userName)
+                    .color(color)
+                    .build();
+
+            return Message.builder()
+                    .message("Hallo " + messageParameters.getMessage())
+                    .color(messageParameters.getColor())
+                    .build();
 
         } else {
-            return "Hallo World";
+            return Message.builder().message("Hallo World").build();
         }
     }
 

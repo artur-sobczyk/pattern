@@ -1,5 +1,7 @@
 package pl.art.tutorial.pattern.hallo.print;
 
+import pl.art.tutorial.pattern.hallo.Message;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class CompositePrinter extends Printer {
     }
 
     @Override
-    public void print(String message) {
+    public void print(Message message) {
         printer.forEach(p -> p.print(message));
     }
 

@@ -3,6 +3,7 @@ package pl.art.tutorial.pattern.hallo.print;
 
 import lombok.SneakyThrows;
 import org.apache.commons.io.IOUtils;
+import pl.art.tutorial.pattern.hallo.Message;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,8 +18,8 @@ public class FilePrinter extends Printer {
 
     @Override
     @SneakyThrows
-    public void print(String message) {
-        fileWriter.append(String.format(LOG_TEMPLATE, LocalDateTime.now(), message) + "\n");
+    public void print(Message message) {
+        fileWriter.append(String.format(LOG_TEMPLATE, LocalDateTime.now(), message.getMessage()) + "\n");
     }
 
     public void init() {

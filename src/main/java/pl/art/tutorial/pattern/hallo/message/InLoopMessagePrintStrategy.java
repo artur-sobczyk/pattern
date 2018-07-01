@@ -1,5 +1,6 @@
 package pl.art.tutorial.pattern.hallo.message;
 
+import pl.art.tutorial.pattern.hallo.Message;
 import pl.art.tutorial.pattern.hallo.MessageFactory;
 import pl.art.tutorial.pattern.hallo.ProgramArgument;
 import pl.art.tutorial.pattern.hallo.print.Printer;
@@ -16,7 +17,7 @@ class InLoopMessagePrintStrategy implements MessagePrintStrategy {
     public void print(Printer printer, ProgramArgument argument) {
 
         while(true){
-            String message = messageFactory.generate(argument);
+            Message message = messageFactory.generate(argument.messageParameters());
             printer.print(message);
         }
     }

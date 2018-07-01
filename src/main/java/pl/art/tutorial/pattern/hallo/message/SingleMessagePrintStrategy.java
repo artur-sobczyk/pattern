@@ -1,5 +1,6 @@
 package pl.art.tutorial.pattern.hallo.message;
 
+import pl.art.tutorial.pattern.hallo.Message;
 import pl.art.tutorial.pattern.hallo.MessageFactory;
 import pl.art.tutorial.pattern.hallo.ProgramArgument;
 import pl.art.tutorial.pattern.hallo.print.Printer;
@@ -14,7 +15,7 @@ class SingleMessagePrintStrategy implements MessagePrintStrategy {
 
     @Override
     public void print(Printer printer, ProgramArgument argument) {
-        String message = messageFactory.generate(argument);
+        Message message = messageFactory.generate(argument.messageParameters());
         printer.print(message);
     }
 }
