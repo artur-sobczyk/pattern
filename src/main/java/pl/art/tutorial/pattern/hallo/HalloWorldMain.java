@@ -1,7 +1,9 @@
 package pl.art.tutorial.pattern.hallo;
 
-import pl.art.tutorial.pattern.hallo.print.MessagePrintStrategy;
-import pl.art.tutorial.pattern.hallo.print.MessagePrintStrategyFactory;
+import pl.art.tutorial.pattern.hallo.message.MessagePrintStrategy;
+import pl.art.tutorial.pattern.hallo.message.MessagePrintStrategyFactory;
+import pl.art.tutorial.pattern.hallo.print.Printer;
+import pl.art.tutorial.pattern.hallo.print.PrinterFactory;
 
 import java.util.Arrays;
 
@@ -16,8 +18,8 @@ public class HalloWorldMain {
         MessageFactory messageFactory = new MessageFactory();
         MessagePrintStrategyFactory messagePrintStrategyFactory = new MessagePrintStrategyFactory(messageFactory);
 
-
         MessagePrintStrategy strategy = messagePrintStrategyFactory.create(argument);
-        strategy.print(argument);
+        Printer printer = new PrinterFactory().create(argument);
+        strategy.print(printer, argument);
     }
 }

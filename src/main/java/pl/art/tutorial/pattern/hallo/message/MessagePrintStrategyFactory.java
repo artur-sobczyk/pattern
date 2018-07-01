@@ -1,4 +1,4 @@
-package pl.art.tutorial.pattern.hallo.print;
+package pl.art.tutorial.pattern.hallo.message;
 
 import pl.art.tutorial.pattern.hallo.MessageFactory;
 import pl.art.tutorial.pattern.hallo.ProgramArgument;
